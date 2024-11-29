@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Buy</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .navbar .search {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .search input {
+      padding: 5px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .navbar .search button {
+      background-color: #6a5acd;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Container */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 40px;
+    }
+
+    /* Sections */
+    section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #6a5acd;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5a4bb8;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+
+    input:checked + .slider {
+      background-color: #6a5acd;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    /* Score Section */
+    .score {
+      text-align: center;
+    }
+
+    .circle {
+      margin: 10px auto;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #6a5acd;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+    }
+
+    /* Risk Graph Placeholder */
+    .graph-placeholder {
+      height: 150px;
+      border: 1px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Social Buttons */
+    .social-buttons button {
+      margin: 5px;
+      background-color: #1DA1F2;
+      color: white;
+    }
+    .social-buttons button:hover {
+      background-color: #1A91DA;
+    }
+
+    .review {
+      margin-top: 10px;
+    }
+
+    .review span {
+      color: #ffba00;
+    }
+
+    .review strong {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Image Recognition</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Shop</a></li>
+      </ul>
+    </nav>
+    <div class="search">
+      <input type="text" placeholder="Search...">
+      <button>🔍</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <section class="upload-section">
+      <h2>Upload Product Image</h2>
+      
+      <button>Upload Image</button>
+    </section>
+
+    <section class="details-section">
+      <h2>Product Details</h2>
+      <form>
+        <input type="text" placeholder="Product Name">
+        <input type="text" placeholder="Product Type">
+        <textarea placeholder="Detailed Information"></textarea>
+      </form>
+    </section>
+
+    <section class="analysis-section">
+      <h2>Real-Time Analysis & Detection</h2>
+      <div>
+        <label class="switch">
+          <input type="checkbox">
+          <span class="slider"></span>
+        </label>
+        <button>Check Status</button>
+      </div>
+    </section>
+
+    <section class="auth-section">
+      <h2>Authenticity Status</h2>
+      <input type="text" placeholder="Enter certification details">
+      <div class="auth-status">
+        <p>The product is verified as authentic.</p>
+        <button>Save</button>
+        <div class="social-buttons">
+          <button>Share on Twitter</button>
+          <button>Share on Facebook</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="database-section">
+      <h2>Database Comparison</h2>
+      <div class="score">
+        <p>Performance Score</p>
+        <div class="circle">
+          <p>85</p>
+        </div>
+        <p>▼ 92%</p>
+      </div>
+    </section>
+
+    <section class="reviews-section">
+      <h2>User Reviews</h2>
+      <input type="text" placeholder="Write your review here...">
+      <div class="review">
+        <strong>John Doe</strong>
+        <p>Posted 2 hours ago</p>
+        <p>Great product! Exceeded my expectations.</p>
+        <span>★★★★★</span>
+      </div>
+    </section>
+
+    <section class="risk-section">
+      <h2>Counterfeit Risk Levels</h2>
+      <div class="graph-placeholder">
+              </div>
+    </section>
+  </div>
+</body>
+</html>
